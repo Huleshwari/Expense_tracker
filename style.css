@@ -1,0 +1,141 @@
+body {
+    /* font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0; */
+/* background: linear-gradient(to right, #e0f7fa, #b2ebf2); */
+background: linear-gradient(to right, #f3e5f5, #e1bee7);
+
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 50%;
+    margin: 50px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.balance-section input {
+    width: 60%;
+    /* Make the input box larger */
+    padding: 10px;
+    margin-right: 10px;
+}
+
+.balance-section button {
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.balance-section button:hover {
+    background-color: #218838;
+}
+
+.balance-display h2 {
+    text-align: center;
+    font-size: 20px;
+}
+
+.total-balance-display h2 {
+    text-align: center;
+    font-size: 20px;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input,
+select,
+button {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+#balance,
+#total-expenses {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#expense-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+#expense-list li>div {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#expense-list li>div span {
+    width: 70%;
+    /* Set a fixed width for the text part */
+}
+
+#expense-list li button {
+    margin-left: 10px;
+    /* Adds spacing between the buttons */
+}
+
+.edit-btn,
+.delete-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.edit-btn i {
+    color: #3498db;
+}
+
+.delete-btn i {
+    color: #e74c3c;
+}
+
+.edit-btn:hover i {
+    color: #2980b9;
+}
+
+.delete-btn:hover i {
+    color: #c0392b;
+}

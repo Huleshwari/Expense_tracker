@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Expense Tracker</h1>
+
+        <!-- Balance Section -->
+        <div class="balance-section">
+            <input type="number" id="balance-input" placeholder="Set your balance" />
+            <button id="set-balance-btn">Set Balance</button>
+        </div>
+
+        <!-- Remaining Balance Display -->
+        <div class="balance-display">
+            <h2>Remaining Balance: ₹<span id="remaining-balance">0</span></h2>
+        </div>
+
+
+        <!-- Total Balance Display -->
+        <div class="total-balance-display">
+            <h2>Total Balance: ₹<span id="total-balance">0</span></h2>
+        </div>
+
+        <!-- Expense Form -->
+        <form id="expense-form">
+            <input type="text" id="expense-name" placeholder="Expense Name" required />
+            <input type="number" id="expense-amount" placeholder="Amount" required />
+            <select id="expense-category" required>
+                <option value="" disabled selected>Select Category</option>
+                <option value="food">Food</option>
+                <option value="entertainment">Entertainment</option>
+                <option value="travel">Travel</option>
+                <option value="other">Other</option>
+            </select>
+            <input type="date" id="expense-date" />
+            <button type="submit">Add Expense</button>
+        </form>
+
+        <!-- Expense List -->
+        <ul id="expense-list"></ul>
+
+        <!-- Total Expenses -->
+        <div id="total-expenses">
+            Total Expenses: ₹<span id="total-amount">0</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
