@@ -1,5 +1,5 @@
 let totalBalance = 0;
-let remainingBalance = 0; // Use this variable to track remaining balance
+let remainingBalance = 0; 
 let totalExpenses = 0;
 let expenses = JSON.parse(localStorage.getItem('expenses')) || [];
 
@@ -14,10 +14,10 @@ if (localStorage.getItem('totalBalance')) {
 document.getElementById('set-balance-btn').addEventListener('click', () => {
     const newBalance = parseFloat(document.getElementById('balance-input').value);
     if (newBalance >= 0) {
-        totalBalance += newBalance;  // Add to total balance
-        remainingBalance += newBalance;  // Add to remaining balance
-        localStorage.setItem('totalBalance', totalBalance); // Save to localStorage
-        updateBalance();  // Update the balance display
+        totalBalance += newBalance;  
+        remainingBalance += newBalance;  
+        localStorage.setItem('totalBalance', totalBalance); 
+        updateBalance();  
     } else {
         alert('Please enter a valid positive balance.');
     }
@@ -25,7 +25,7 @@ document.getElementById('set-balance-btn').addEventListener('click', () => {
 
 // Function to add an expense
 document.getElementById('expense-form').addEventListener('submit', function (e) {
-    e.preventDefault(); // Prevent form submission from refreshing the page
+    e.preventDefault(); 
 
     const name = document.getElementById('expense-name').value;
     const amount = parseFloat(document.getElementById('expense-amount').value);
@@ -51,7 +51,7 @@ document.getElementById('expense-form').addEventListener('submit', function (e) 
 
     // Update total expenses and remaining balance
     totalExpenses += amount;
-    remainingBalance -= amount;  // Subtract the amount from remaining balance
+    remainingBalance -= amount;  
 
     addExpenseToList(expense);
     updateBalance();
@@ -84,7 +84,7 @@ function deleteExpense(expense, listItem) {
     localStorage.setItem('expenses', JSON.stringify(expenses));
     listItem.remove();
     totalExpenses -= expense.amount;
-    remainingBalance += expense.amount;  // Add back the amount to remaining balance
+    remainingBalance += expense.amount;  
     updateBalance();
 }
 
@@ -95,7 +95,6 @@ function editExpense(expense, listItem) {
     document.getElementById('expense-category').value = expense.category;
     document.getElementById('expense-date').value = expense.date;
 
-    // Remove the old expense and update total expenses
     deleteExpense(expense, listItem);
 }
 
@@ -113,6 +112,29 @@ function loadExpenses() {
     remainingBalance = totalBalance - totalExpenses;
     updateBalance();
 }
+
+// Filter expenses by date range
+document.getElementById('filter-btn').addEventListener('click', () => {
+    const startDate = new Date(document.getElementById('start-date').value);
+    const endDate = new Date(document.getElementById('end-date').value);
+    
+    const filteredExpenses = expenses.filter(expense => {
+        const expenseDate = new Date(expense.date);
+        return expenseDate >= startDate && expenseDate <= endDate;
+    });
+
+    // Clear current list and display filtered expenses
+    const expenseList = document.getElementById('expense-list');
+    expenseList.innerHTML = '';
+    filteredExpenses.forEach(addExpenseToList);
+});
+
+// Reset filters
+document.getElementById('reset-btn').addEventListener('click', () => {
+    document.getElementById('start-date').value = '';
+    document.getElementById('end-date').value = '';
+    loadExpenses(); // Reload all expenses
+});
 
 // Call loadExpenses on page load
 loadExpenses();
