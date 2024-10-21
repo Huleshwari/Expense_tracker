@@ -24,7 +24,6 @@
             <h2>Remaining Balance: ₹<span id="remaining-balance">0</span></h2>
         </div>
 
-
         <!-- Total Balance Display -->
         <div class="total-balance-display">
             <h2>Total Balance: ₹<span id="total-balance">0</span></h2>
@@ -44,6 +43,14 @@
             <input type="date" id="expense-date" />
             <button type="submit">Add Expense</button>
         </form>
+
+        <!-- Date Filter Section -->
+        <div class="filter-section">
+            <input type="date" id="start-date" placeholder="Start Date" />
+            <input type="date" id="end-date" placeholder="End Date" />
+            <button id="filter-btn">Filter</button>
+            <button id="reset-btn">Reset</button>
+        </div>
 
         <!-- Expense List -->
         <ul id="expense-list"></ul>
